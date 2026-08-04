@@ -1,1 +1,501 @@
+/* ===========================
+   PROJECT ARC
+   v0.1
+=========================== */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    background:#02060d;
+
+    color:#bffcff;
+
+    font-family:'Rajdhani',sans-serif;
+
+}
+
+body{
+
+    background:
+    radial-gradient(circle at center,
+    rgba(0,180,255,.15),
+    rgba(0,0,0,.95) 70%),
+
+    linear-gradient(#030a12,#010204);
+
+}
+
+/**********************
+BOOT
+**********************/
+
+#boot{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#010305;
+
+    z-index:999;
+
+    animation:bootFade 4s forwards;
+
+}
+
+.boot-logo{
+
+    font-family:'Orbitron';
+
+    font-size:48px;
+
+    letter-spacing:10px;
+
+    color:#73ffff;
+
+    text-shadow:
+
+    0 0 20px cyan,
+
+    0 0 60px cyan;
+
+}
+
+.boot-loading{
+
+    margin-top:25px;
+
+    letter-spacing:6px;
+
+    opacity:.8;
+
+}
+
+.progress{
+
+    width:350px;
+
+    height:5px;
+
+    margin-top:40px;
+
+    background:#112;
+
+}
+
+.progress-bar{
+
+    height:100%;
+
+    width:0;
+
+    background:#00ffff;
+
+    animation:loading 3.2s linear forwards;
+
+}
+
+/**********************
+HUD
+**********************/
+
+#hud{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    padding:40px;
+
+}
+
+header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.logo{
+
+    font-family:Orbitron;
+
+    letter-spacing:8px;
+
+    font-size:22px;
+
+}
+
+.status{
+
+    color:#54ff8d;
+
+}
+
+/**********************
+REACTOR
+**********************/
+
+.reactor-area{
+
+    position:relative;
+
+    width:420px;
+
+    height:420px;
+
+    margin:auto;
+
+}
+
+.core{
+
+    position:absolute;
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border:2px solid cyan;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+
+    0 0 25px cyan,
+
+    inset 0 0 35px rgba(0,255,255,.3);
+
+}
+
+#temperature{
+
+    font-size:62px;
+
+    font-family:Orbitron;
+
+}
+
+#target{
+
+    margin-top:10px;
+
+    letter-spacing:3px;
+
+    font-size:16px;
+
+}
+
+.core-glow{
+
+    position:absolute;
+
+    width:280px;
+
+    height:280px;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,
+    rgba(0,255,255,.3),
+    transparent 70%);
+
+    filter:blur(20px);
+
+}
+
+.ring{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    border:2px solid rgba(0,255,255,.4);
+
+}
+
+.ring1{
+
+    width:360px;
+
+    height:360px;
+
+    animation:spin1 35s linear infinite;
+
+}
+
+.ring2{
+
+    width:300px;
+
+    height:300px;
+
+    border-style:dashed;
+
+    animation:spin2 18s linear infinite;
+
+}
+
+.ring3{
+
+    width:240px;
+
+    height:240px;
+
+    animation:spin1 10s linear infinite;
+
+}
+
+.ring4{
+
+    width:120px;
+
+    height:120px;
+
+    animation:pulse 2s infinite;
+
+}
+
+/**********************
+PANELS
+**********************/
+
+.panels{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+.panel{
+
+    border:1px solid rgba(0,255,255,.2);
+
+    background:rgba(0,20,35,.45);
+
+    padding:18px;
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+
+    inset 0 0 20px rgba(0,255,255,.08);
+
+}
+
+.panel-title{
+
+    opacity:.7;
+
+    letter-spacing:3px;
+
+}
+
+.panel-value{
+
+    font-size:34px;
+
+    margin-top:8px;
+
+    color:#fff;
+
+}
+
+/**********************
+CONTROLS
+**********************/
+
+.controls{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:60px;
+
+    margin-top:40px;
+
+}
+
+button{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    border:2px solid cyan;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:36px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    background:cyan;
+
+    color:black;
+
+    box-shadow:0 0 20px cyan;
+
+}
+
+.mode{
+
+    font-family:Orbitron;
+
+    font-size:24px;
+
+}
+
+/**********************
+FOOTER
+**********************/
+
+footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    opacity:.6;
+
+    letter-spacing:4px;
+
+}
+
+/**********************
+PARTICLES
+**********************/
+
+#particles{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:-1;
+
+}
+
+/**********************
+ANIMATIONS
+**********************/
+
+@keyframes spin1{
+
+from{transform:translate(-50%,-50%) rotate(0);}
+to{transform:translate(-50%,-50%) rotate(360deg);}
+
+}
+
+@keyframes spin2{
+
+from{transform:translate(-50%,-50%) rotate(360deg);}
+to{transform:translate(-50%,-50%) rotate(0);}
+
+}
+
+@keyframes pulse{
+
+0%{transform:translate(-50%,-50%) scale(1);}
+50%{transform:translate(-50%,-50%) scale(1.08);}
+100%{transform:translate(-50%,-50%) scale(1);}
+
+}
+
+@keyframes loading{
+
+from{width:0;}
+to{width:100%;}
+
+}
+
+@keyframes bootFade{
+
+0%,80%{
+
+opacity:1;
+
+visibility:visible;
+
+}
+
+100%{
+
+opacity:0;
+
+visibility:hidden;
+
+}
+
+}
