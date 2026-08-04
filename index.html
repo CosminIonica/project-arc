@@ -1,1 +1,206 @@
+<!DOCTYPE html>
+<html lang="ro">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PROJECT ARC</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<div id="boot">
+
+    <div class="boot-logo">
+
+        PROJECT ARC
+
+    </div>
+
+    <div class="boot-loading">
+
+        INITIALIZING CORE...
+
+    </div>
+
+    <div class="progress">
+
+        <div class="progress-bar"></div>
+
+    </div>
+
+</div>
+
+<div id="hud">
+
+<header>
+
+<div class="logo">
+
+PROJECT ARC
+
+</div>
+
+<div class="status">
+
+CONNECTED
+
+</div>
+
+</header>
+
+<section class="reactor-area">
+
+<div class="ring ring1"></div>
+
+<div class="ring ring2"></div>
+
+<div class="ring ring3"></div>
+
+<div class="ring ring4"></div>
+
+<div class="core-glow"></div>
+
+<div class="core">
+
+<div id="temperature">
+
+22.5°
+
+</div>
+
+<div id="target">
+
+TARGET 23°
+
+</div>
+
+</div>
+
+</section>
+
+<section class="panels">
+
+<div class="panel">
+
+<div class="panel-title">
+
+ROOM
+
+</div>
+
+<div class="panel-value" id="roomTemp">
+
+22.5°C
+
+</div>
+
+</div>
+
+<div class="panel">
+
+<div class="panel-title">
+
+HUMIDITY
+
+</div>
+
+<div class="panel-value" id="humidity">
+
+48%
+
+</div>
+
+</div>
+
+<div class="panel">
+
+<div class="panel-title">
+
+BOILER
+
+</div>
+
+<div class="panel-value" id="boiler">
+
+ACTIVE
+
+</div>
+
+</div>
+
+<div class="panel">
+
+<div class="panel-title">
+
+POWER
+
+</div>
+
+<div class="panel-value" id="power">
+
+42%
+
+</div>
+
+</div>
+
+</section>
+
+<section class="controls">
+
+<button id="minus">
+
+−
+
+</button>
+
+<div class="mode">
+
+HEAT
+
+</div>
+
+<button id="plus">
+
++
+
+</button>
+
+</section>
+
+<footer>
+
+<div class="footer-left">
+
+PROJECT ARC
+
+</div>
+
+<div class="footer-right">
+
+HOME ASSISTANT
+
+</div>
+
+</footer>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
